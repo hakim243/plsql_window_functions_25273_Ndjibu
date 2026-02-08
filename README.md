@@ -161,6 +161,9 @@ Focus on loyalty programs, personalized promotions, target inactive customers, r
 
 
 
+
+
+
 💻 TECHNOLOGIES USED
 
 PostgreSQL
@@ -168,6 +171,8 @@ SQL
 pgAdmin
 Draw.io (ER Diagram Design)
 GitHub (Version Control and Documentation)
+
+
 
 📚 REFERENCES
 
@@ -178,6 +183,9 @@ Oracle Corporation. SQL Window Functions Documentation. https://docs.oracle.com/
 Silberschatz, A., Korth, H., & Sudarshan, S. Database System Concepts, 7th ed., McGraw-Hill
 
 W3Schools. SQL JOIN Tutorial. https://www.w3schools.com/sql/
+
+
+
 
 🛡 ACADEMIC INTEGRITY STATEMENT
 
