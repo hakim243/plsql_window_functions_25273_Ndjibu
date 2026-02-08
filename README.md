@@ -69,6 +69,19 @@ The database uses four related tables to simulate a realistic retail sales syste
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 🔗 PART A — SQL JOIN IMPLEMENTATION
 
 Purpose: Combine multiple tables to generate meaningful business insights.
@@ -92,6 +105,17 @@ RIGHT JOIN / FULL OUTER JOIN – Detects products with no sales activity.
 SELF JOIN – Compares customers within the same region.
 
 <img width="1365" height="767" alt="Screenshot 2026-02-08 141331" src="https://github.com/user-attachments/assets/78150547-866b-4739-9fa7-15defb60b537" />
+
+
+
+
+
+
+
+
+
+
+
 
 
 
