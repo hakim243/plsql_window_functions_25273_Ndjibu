@@ -67,6 +67,8 @@ The database uses four related tables to simulate a realistic retail sales syste
 <img width="671" height="571" alt="Retail sales database ER diagram drawio" src="https://github.com/user-attachments/assets/e708be1e-3307-4832-8440-1ed49789973b" />
 
 
+
+
 🔗 PART A — SQL JOIN IMPLEMENTATION
 
 Purpose: Combine multiple tables to generate meaningful business insights.
@@ -90,6 +92,8 @@ RIGHT JOIN / FULL OUTER JOIN – Detects products with no sales activity.
 SELF JOIN – Compares customers within the same region.
 
 <img width="1365" height="767" alt="Screenshot 2026-02-08 141331" src="https://github.com/user-attachments/assets/78150547-866b-4739-9fa7-15defb60b537" />
+
+
 
 
 
