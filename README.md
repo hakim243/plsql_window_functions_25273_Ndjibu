@@ -1,123 +1,139 @@
-  🛒 RETAIL SALES ANALYTICS USING SQL JOINS AND WINDOW FUNCTIONS
+🛒 RETAIL SALES ANALYTICS USING SQL JOINs AND WINDOW FUNCTIONS
 
-📋 PROJECT OVERVIWE
+📋 PROJECT OVERVIEW
 
-For this project, I worked on analyzing retail sales data using SQL JOINs and window functions. The main goal was to understand the raw data and turn it into useful insights for the company. This includes seeing which customers are buying the most, tracking product performance, and noticing sales trends over time.
-I implemented everything using PostgreSQL. During the project, I applied database design ideas and ran SQL queries to simulate a real business scenario.
+For this project, I analyzed retail sales data using SQL JOINs and window functions. The main goal was to turn raw transactional data into meaningful business insights to support decision-making in marketing, inventory management, and customer relationship management.
+
+Implementation was done in PostgreSQL. I applied relational database design concepts and ran analytical queries to simulate a real business scenario.
 
 🏢 BUSINESS CONTEXT
 
-Retail companies collect lots of information from customers buying products in different regions. Just having raw data doesn’t automatically help them make decisions. Proper analysis is needed to see which customers are valuable, which products sell well, and how sales trends change over time.
-In this project, I focused on helping the company identify top customers, track product performance, and understand sales patterns. The analysis is meant to help with marketing campaigns, inventory planning, and keeping customers engaged.
+Retail companies collect large amounts of data from customers buying products in different regions. Having raw data alone doesn’t automatically help decision-making. Proper analysis is needed to:
+
+Identify top customers
+
+Track product performance
+
+Understand sales trends over time
+
+This project focused on providing insights that help with marketing strategies, inventory planning, and customer retention.
 
 ⚠️ DATA CHALLENGE
 
-The company stores transactions involving customers, products, and orders. One challenge is that this data is split across multiple tables, which makes it hard to analyze without joining them properly.
-Another challenge is finding patterns like top-selling products, customer purchase habits, and month-to-month sales changes. Without the right queries, it’s difficult to make decisions based on this data.
+The company’s transactional data is stored across multiple tables (customers, products, orders, order_items).
+
+Challenges include:
+
+Combining multiple tables for analysis
+
+Identifying top-selling products
+
+Tracking customer purchase behavior
+
+Monitoring month-to-month sales trends
 
 🎯 EXPECTED OUTCOME
 
-The goal of the project was to identify the best-performing products, analyze how customers make purchases, and track sales trends. The results should help the business plan marketing campaigns, improve product strategies, and increase overall performance.
+The project aims to:
+
+Identify high-performing products
+
+Analyze customer purchasing behavior
+
+Track sales trends over time
+
+Provide insights for marketing campaigns and inventory planning
 
 ✅ SUCCESS CRITERIA
 
-I measured the success of this project using five main goals:
+I measured success using five analytical goals:
 
-🥇 Identify top customers based on total spending using ranking window functions.
+🥇 Identify top customers by total spending (Ranking Functions)
 
-📈 Calculate running monthly sales totals using aggregate window functions.
+📈 Calculate running monthly sales totals (Aggregate Functions)
 
-🔄 Measure month-to-month sales growth using navigation window functions.
+🔄 Measure month-to-month sales growth (Navigation Functions)
 
-📊 Segment customers into four groups based on spending using distribution window functions.
+📊 Segment customers into spending groups (Distribution Functions)
 
-📅 Calculate three-month moving average sales to see long-term trends.
+📅 Calculate three-month moving average sales trends
 
 🗄 DATABASE SCHEMA DESIGN
 
-The database has four related tables to simulate a realistic retail sales system. I focused on keeping the structure normalized and linking the tables properly.
+The database uses four related tables to simulate a realistic retail sales system, with normalized structure and proper primary/foreign key relationships.
 
-👥 CUSTOMERS TABLE
+🖼 ER Diagram – Shows relationships between Customers, Orders, Order_Items, Products
 
-Stores customer info like customer ID, name, email, region, and registration date. Each customer has a unique ID.
+<img width="671" height="571" alt="Retail sales database ER diagram drawio" src="https://github.com/user-attachments/assets/e708be1e-3307-4832-8440-1ed49789973b" />
 
-🛍 PRODUCTS TABLE
 
-Stores product details like product name, category, and price. Each product has a unique ID.
+🔗 PART A — SQL JOIN IMPLEMENTATION
 
-🧾 ORDERS TABLE
+Purpose: Combine multiple tables to generate meaningful business insights.
 
-Keeps track of purchase transactions. Each order links to a customer, and one customer can place many orders.
+INNER JOIN – Retrieves completed transactions involving valid customers and products.
 
-📦 ORDER_ITEMS TABLE
+<img width="1361" height="762" alt="Screenshot 2026-02-08 121327" src="https://github.com/user-attachments/assets/53b5c552-dec9-484f-b53b-f66d95c41ce0" />
 
-Records the products included in each order. It links to both orders and products and includes quantity and total cost.
 
-🔗 SQL JOIN IMPLEMENTATIONS
+LEFT JOIN – Identifies customers who have never placed an order.
 
-I used JOIN operations to combine data from multiple tables and get useful insights.
+<img width="1365" height="767" alt="Screenshot 2026-02-08 141054" src="https://github.com/user-attachments/assets/d056fc82-af5d-4d0f-9868-693fa3f92c6e" />
 
-🔹 INNER JOIN 🟢
 
-Used to get valid transaction records including customers, products, and orders. Shows which sales actually happened.
+RIGHT JOIN / FULL OUTER JOIN – Detects products with no sales activity.
 
-🔹 LEFT JOIN 🟡
+<img width="1365" height="767" alt="Screenshot 2026-02-08 141213" src="https://github.com/user-attachments/assets/77675e7d-4688-4e5e-af98-b8a040248941" />
 
-Used to find customers who haven’t placed any orders. Helps plan marketing campaigns for inactive customers.
 
-🔹 RIGHT JOIN / FULL OUTER JOIN 🔵
 
-Used to detect products with no sales. Also helps compare matched and unmatched records across tables.
+SELF JOIN – Compares customers within the same region.
 
-🔹 SELF JOIN 🟣
+<img width="1365" height="767" alt="Screenshot 2026-02-08 141331" src="https://github.com/user-attachments/assets/78150547-866b-4739-9fa7-15defb60b537" />
 
-Used to compare customers in the same region. Helps spot patterns and distribution in specific areas.
 
-📊 WINDOW FUNCTIONS IMPLEMENTATIONS
 
-Window functions allowed me to do calculations that regular queries can’t easily do.
+📊 PART B — WINDOW FUNCTIONS IMPLEMENTATION
 
-🥇 RRANKING FUNCTIONS
+Purpose: Perform advanced analytical calculations that regular aggregation cannot easily achieve.
 
-ROW_NUMBER(), RANK(), DENSE_RANK(), PERCENT_RANK()
-Used to find the top customers based on total spending. Helps identify loyal, high-value customers.
+Ranking Functions (ROW_NUMBER, RANK, DENSE_RANK, PERCENT_RANK) – Identify top customers by total spending.
 
-📈 AGGREGATE WINDOW FUNCTIONS
+<img width="1365" height="767" alt="Screenshot 2026-02-08 141703" src="https://github.com/user-attachments/assets/4d2a5024-72fd-4877-b704-d2cfd2f65eb7" />
 
-SUM(), AVG()
-Used to calculate running monthly totals and moving averages. Helps track sales trends over time.
 
-🔄 NAVIGATION FUNCTIONS
+Aggregate Functions (SUM, AVG with ROWS/RANGE) – Calculate running monthly totals and moving averages.
 
-LAG(), LEAD()
-Used to compare sales from one month to the next. Shows whether sales are increasing or decreasing.
+<img width="1365" height="767" alt="Screenshot 2026-02-08 141741" src="https://github.com/user-attachments/assets/5d18f60e-b177-444e-a7a4-44f4ede09677" />
 
-📊 DISTRIBUTION FUNCTIONS
 
-NTILE(), CUME_DIST()
-Used to split customers into spending groups. Helps plan targeted marketing strategies.
+Navigation Functions (LAG, LEAD) – Compare sales month-to-month to detect growth or decline.
 
-📈 RESULTS ANALYTICS
+<img width="1355" height="754" alt="Screenshot 2026-02-08 141813" src="https://github.com/user-attachments/assets/f737431d-7a7c-4442-bc99-b97c7768d5c3" />
 
-🔹 Descriptive Analysis — What Happened?
 
-I found that a small number of customers make up most of the total revenue. Sales also changed across months, probably due to promotions or seasonal effects. Dividing customers into spending groups showed clear differences between high and low spenders.
+Distribution Functions (NTILE, CUME_DIST) – Segment customers into spending groups for targeted marketing.
 
-🔹 Diagnostic Analysis — Why Did It Happen?
+ <img width="1365" height="767" alt="Screenshot 2026-02-08 141838" src="https://github.com/user-attachments/assets/075a284e-02ec-4b9f-a647-488182a719e3" />
 
-The differences might be caused by loyalty, buying habits, or promotions. Some products had low or no sales, which could be a pricing or visibility issue. I also noticed some registered customers never made a purchase, showing low engagement.
 
-🔹 Prescriptive Analysis — What Should Be Done?
+📈 RESULTS ANALYSIS
 
-The company should focus on keeping high-value customers with loyalty programs or personalized offers. Marketing should target inactive customers. Low-selling products should be reviewed for pricing or promotion adjustments. Tracking sales trends can also help with inventory planning.
+Descriptive Analysis — WHAT HAPPENED?
+Small number of customers contributed most revenue; sales varied across months; clear differences between high and low spenders.
 
-🖼 ER DIAGRAM
 
-The ER diagram shows how Customers, Orders, Order_Items, and Products are linked. It illustrates how customers place orders, how orders contain multiple products, and how products connect to transactions.
+Diagnostic Analysis — WHY DID IT HAPPENED?
+Differences caused by loyalty, buying habits, promotions, low sales products, and inactive customers.
 
-<img width="671" height="571" alt="Retail sales database ER diagram drawio" src="https://github.com/user-attachments/assets/4ca2c882-2f70-48b3-8623-4f5e56f2cfbe" />
 
-💻 TECHNOLOGIES USED 
+
+Prescriptive Analysis — WHAT SHOULD BE DONE?
+Focus on loyalty programs, personalized promotions, target inactive customers, review low-selling products, and improve inventory planning.
+
+
+
+💻 TECHNOLOGIES USED
 
 PostgreSQL
 
@@ -129,15 +145,15 @@ Draw.io (ER Diagram Design)
 
 GitHub (Version Control and Documentation)
 
-📚 REFERENCES 
+📚 REFERENCES
 
-PostgreSQL Global Development Group. (2024). PostgreSQL Documentation. Retrieved from https://www.postgresql.org/docs/
+PostgreSQL Global Development Group. PostgreSQL Documentation. https://www.postgresql.org/docs/
 
-Oracle Corporation. (2024). SQL Window Functions Documentation. Retrieved from https://docs.oracle.com/en/database/
+Oracle Corporation. SQL Window Functions Documentation. https://docs.oracle.com/en/database/
 
-Silberschatz, A., Korth, H., & Sudarshan, S. (2019). Database System Concepts (7th ed.). McGraw-Hill Education.
+Silberschatz, A., Korth, H., & Sudarshan, S. Database System Concepts, 7th ed., McGraw-Hill
 
-W3Schools. (2024). SQL JOIN Tutorial. Retrieved from https://www.w3schools.com/sql/
+W3Schools. SQL JOIN Tutorial. https://www.w3schools.com/sql/
 
 🛡 ACADEMIC INTEGRITY STATEMENT
 
