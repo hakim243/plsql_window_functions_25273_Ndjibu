@@ -1,4 +1,4 @@
-🛒 RETAIL SALES ANALYTICS USING SQL JOINs AND WINDOW FUNCTIONS
+🛒 RETAIL SALES ANALYTICS USING SQL JOINS AND WINDOW FUNCTIONS
 
 📋 PROJECT OVERVIEW
 
@@ -164,13 +164,9 @@ Focus on loyalty programs, personalized promotions, target inactive customers, r
 💻 TECHNOLOGIES USED
 
 PostgreSQL
-
 SQL
-
 pgAdmin
-
 Draw.io (ER Diagram Design)
-
 GitHub (Version Control and Documentation)
 
 📚 REFERENCES
